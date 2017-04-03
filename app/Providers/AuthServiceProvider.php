@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Core\Entities\Article;
+use Core\Entities\Reservation;
 use Core\Policies\ArticlePolicy;
+use Core\Policies\ReservationPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Article::class => ArticlePolicy::class,
+        Reservation::class => ReservationPolicy::class,
     ];
 
     /**
@@ -26,7 +29,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }
